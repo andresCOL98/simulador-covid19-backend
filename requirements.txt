@@ -1,6 +1,4 @@
-setuptools==58
 amqp==2.5.2
-anyjson==0.3.3
 appdirs==1.4.3
 attrs==19.3.0
 Automat==0.8.0

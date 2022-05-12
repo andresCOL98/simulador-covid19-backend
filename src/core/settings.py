@@ -58,7 +58,7 @@ MIDDLEWARE = [
 
 CORS_ORIGIN_ALLOW_ALL = True
 
-ROOT_URLCONF = 'core.urls'
+ROOT_URLCONF = 'src.core.urls'
 
 TEMPLATES = [
     {

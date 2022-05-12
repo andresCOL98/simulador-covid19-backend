@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from apps.dashboard.models import Country
+from src.apps.dashboard.models import Country
 
 class CountryDataCovidSerializer(serializers.Serializer):
 

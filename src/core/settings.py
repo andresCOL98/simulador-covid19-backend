@@ -76,22 +76,22 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'core.wsgi.application'
+WSGI_APPLICATION = 'src.core.wsgi.application'
 
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        "ENGINE": config("SQL_ENGINE"),
-        "NAME": config("SQL_DATABASE"),
-        "USER": config("SQL_USER", "user"),
-        "PASSWORD": config("SQL_PASSWORD", "password"),
-        "HOST": config("SQL_HOST", "localhost"),
-        "PORT": config("SQL_PORT", "5432"),
-    }
-}
+# DATABASES = {
+#     'default': {
+#         "ENGINE": config("SQL_ENGINE"),
+#         "NAME": config("SQL_DATABASE"),
+#         "USER": config("SQL_USER", "user"),
+#         "PASSWORD": config("SQL_PASSWORD", "password"),
+#         "HOST": config("SQL_HOST", "localhost"),
+#         "PORT": config("SQL_PORT", "5432"),
+#     }
+# }
 
 
 # Password validation

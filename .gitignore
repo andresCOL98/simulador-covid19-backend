@@ -1,3 +1,5 @@
 #local environment variables
 /.env
 .env
+__pycache__/
+*.pyc

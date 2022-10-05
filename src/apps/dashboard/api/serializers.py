@@ -11,6 +11,7 @@ class CountryDataCovidSerializer(serializers.Serializer):
     infected = serializers.IntegerField()
     dead = serializers.IntegerField()
     uci = serializers.IntegerField()
+    fecha = serializers.CharField()
 
 class CountrySerializer(serializers.Serializer):
 

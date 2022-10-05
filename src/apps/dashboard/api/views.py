@@ -7,6 +7,7 @@ from src.apps.dashboard.models import CountryDataCovid , Country
 from sentry_sdk.api import capture_exception
 from rest_framework.status import HTTP_400_BAD_REQUEST, HTTP_200_OK, HTTP_500_INTERNAL_SERVER_ERROR
 from .helpers import readCsv
+from pathlib import Path
 
 class GetCountrys(APIView):
     def get(self, request):
@@ -30,10 +31,11 @@ class GetCountryDataCovidByCountry(APIView):
             # , infected=data[0], dead=data[1], uci=uci_data
             country_data = CountryDataCovid.objects.filter(country=id_country)
             if(country_data.count()>0):
-                country_data.update(country=country, infected=data[0], dead=data[1], uci=uci_data)
+                
+                country_data.update(country=country, infected=data[0], dead=data[1], uci=uci_data, fecha = data[2])
                 countryDataCovid = CountryDataCovid.objects.get(country=id_country)
             else:
-                CountryDataCovid.objects.create(country=country, infected=data[0], dead=data[1], uci=uci_data)
+                CountryDataCovid.objects.create(country=country, infected=data[0], dead=data[1], uci=uci_data, fecha = data[2])
                 countryDataCovid = CountryDataCovid.objects.get(country=id_country)
             if(countryDataCovid):
                 serializer = CountryDataCovidSerializer(countryDataCovid, many = False)

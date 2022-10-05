@@ -17,7 +17,7 @@ def getPathFileOrDefault():
     IsCorrect = os.path.exists(FullPath)
 
     if (not IsCorrect):
-        DirFileOptional = 'static\Temp'
+        DirFileOptional = 'static/Temp'
         fecha = '09-26-2022'
         defaultFile = fecha + typeExt
         FullPath = os.path.join(DirPath, DirFileOptional, defaultFile)

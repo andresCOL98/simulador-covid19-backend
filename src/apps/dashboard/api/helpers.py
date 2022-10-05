@@ -5,8 +5,10 @@ from pathlib import Path
 import os
 
 def getPathFileOrDefault():
+    
     today = date.today()
     yesterday = today - timedelta(days = 1)
+    fecha = str(yesterday.strftime('%m-%d-%Y'))
     DirFile = 'static/GLOBAL/COVID-19/csse_covid_19_data/csse_covid_19_daily_reports'
     typeExt = '.csv'
     DirPath = Path(__file__).resolve().parent.parent
@@ -36,7 +38,6 @@ def readCsv(name_country):
             if(row[3] == name_country):
                 confirmed += int(row[7])
                 deaths += int(row[8])
-                print(deaths)
 
     return confirmed, deaths, CurrentDate
 

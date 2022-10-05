@@ -19,4 +19,4 @@ class CountryDataCovid(models.Model):
     infected = models.BigIntegerField()
     dead = models.BigIntegerField()
     uci = models.BigIntegerField()
-    fecha =  models.CharField()
+    fecha =  models.CharField(max_length=1000)

@@ -4,6 +4,7 @@ from datetime import timedelta
 from operator import ge 
 from pathlib import Path
 import os
+from unicodedata import name
 
 def getPathFileOrDefault():
     
@@ -26,17 +27,11 @@ def getPathFileOrDefault():
     return FullPath, fecha
 
 
-def readCsvGeneralData(name_country):
+def readCsvGeneralData(fullPathFile, name_country):
     confirmed = 0
     deaths = 0
-    DirPath = Path(__file__).resolve().parent.parent
-    DirFileOptional = 'static/Temp'
-    fecha = 'time_series_covid19_vaccine_global'
-    typeExt = '.csv'
-    defaultFile = fecha + typeExt
-    FullPath = os.path.join(DirPath, DirFileOptional, defaultFile)
 
-    with open(FullPath) as f:
+    with open(fullPathFile) as f:
         reader = csv.reader(f, delimiter=',')
         for row in reader:
             if(row[3] == name_country):
@@ -44,23 +39,33 @@ def readCsvGeneralData(name_country):
                 deaths += int(row[8])
     return confirmed, deaths
 
-def readCsvVaccunes(fullPathFile , name_country):
-    vaccunes = 0.0
-    with open(fullPathFile) as f:
+def readCsvVaccunes(name_country):
+    vaccunes = 0
+    DirPath = Path(__file__).resolve().parent.parent
+    DirFileOptional = 'C:/Users/User/Documents/AndresCamiloCortes/Semestre10p1/Tesis/SimuladorCovid19/backEnd/src/apps/dashboard/static/Temp'
+    fecha = 'vaccinations'
+    typeExt = '.csv'
+    defaultFile = fecha + typeExt
+    FullPath = os.path.join(DirPath, DirFileOptional, defaultFile)
+
+    with open(FullPath) as f:
         reader = csv.reader(f, delimiter=',')
         for row in reader:
-            if(row[3] == name_country):
-                vaccunes += int(row[4])
+            if(row[0] == name_country):
+                print(row[0])
+                print(name_country)
+                if(row[3]):
+                    print(row[3])
+                    vaccunes = int(float(row[3]))
     return vaccunes
 
 def getDataCovid(name_country):
 
     values = getPathFileOrDefault()
     fullPathFile = values[0]
-    generalData = readCsvGeneralData(name_country)
+    generalData = readCsvGeneralData(fullPathFile, name_country)
     vaccunes = readCsvVaccunes(name_country)
     currentDate = values[1]
     
 
     return generalData[0], generalData[1], currentDate , vaccunes
-

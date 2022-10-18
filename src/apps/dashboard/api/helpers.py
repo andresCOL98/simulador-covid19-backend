@@ -42,7 +42,7 @@ def readCsvGeneralData(fullPathFile, name_country):
 def readCsvVaccunes(name_country):
     vaccunes = 0
     DirPath = Path(__file__).resolve().parent.parent
-    DirFileOptional = 'C:/Users/User/Documents/AndresCamiloCortes/Semestre10p1/Tesis/SimuladorCovid19/backEnd/src/apps/dashboard/static/Temp'
+    DirFileOptional = 'static/Temp'
     fecha = 'vaccinations'
     typeExt = '.csv'
     defaultFile = fecha + typeExt

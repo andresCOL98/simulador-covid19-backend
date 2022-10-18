@@ -3,7 +3,7 @@ from rest_framework.response import Response
 from .serializers import CountryDataCovidSerializer , CountrySerializer
 from rest_framework.views import APIView
 from rest_framework import status
-from apps.dashboard.models import CountryDataCovid , Country
+from src.apps.dashboard.models import CountryDataCovid , Country
 from sentry_sdk.api import capture_exception
 from rest_framework.status import HTTP_400_BAD_REQUEST, HTTP_200_OK, HTTP_500_INTERNAL_SERVER_ERROR
 from .helpers import getDataCovid

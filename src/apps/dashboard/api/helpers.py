@@ -57,7 +57,7 @@ def getDataCovid(name_country):
 
     values = getPathFileOrDefault()
     fullPathFile = values[0]
-    generalData = readCsvGeneralData(fullPathFile, name_country)
+    generalData = readCsvGeneralData(name_country)
     vaccunes = readCsvVaccunes(name_country)
     currentDate = values[1]
     
